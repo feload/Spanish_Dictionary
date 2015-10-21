@@ -44,6 +44,9 @@ for word in dirty_word_lst:
     if word not in output_lst and word.isalpha():
         output_lst.append(word)
 
+#Sort word list
+output_lst.sort()
+
 #write output list to output file one word to a line
 with codecs.open(output_file, "r+", "utf-8") as f:
     for word in output_lst:
