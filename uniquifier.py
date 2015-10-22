@@ -13,7 +13,7 @@ dup_lst = []
 output_lst = []
 output_file = ""
 
-
+##open the user supplied file, split it up into a list of it's words and punctuation
 if isfile(source_file):
     with codecs.open(source_file, 'r', "utf-8") as f:
         content = f.read()
@@ -21,13 +21,16 @@ if isfile(source_file):
             dup_lst.append(word.lower())
 else:
     print "File doesn't exist"
-    
+
+##add each word in the starting list to a new list only if that word is not already in the output list.   
 for word in dup_lst:
     if word not in output_lst and word.isalpha():
         output_lst.append(word)
 
+##new variable adding "uniquified" to the name of the origional file
 output_file = "uniquified_" + source_file
 
+##writing the de-duplicated list to the new output file
 with codecs.open(output_file, "a", "utf-8") as f:
     for word in output_lst:
         f.write(word + "\n")
