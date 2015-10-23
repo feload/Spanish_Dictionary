@@ -40,12 +40,14 @@ for symbol in symbol_lst:
         dirty_word_lst.remove(symbol)
 
 #Add word to output list if is is not already there and is not a number
-for word in dirty_word_lst:
-    if word not in output_lst and word.isalpha():
-        output_lst.append(word)
+#for word in dirty_word_lst:
+#    if word not in output_lst and word.isalpha():
+#        output_lst.append(word)
+
+output_lst = sorted(set(dirty_word_lst))
 
 #Sort word list
-output_lst.sort()
+#output_lst.sort()
 
 #write output list to output file one word to a line
 with codecs.open(output_file, "r+", "utf-8") as f:

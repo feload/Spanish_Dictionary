@@ -23,9 +23,12 @@ else:
     print "File doesn't exist"
 
 ##add each word in the starting list to a new list only if that word is not already in the output list.   
-for word in dup_lst:
-    if word not in output_lst and word.isalpha():
-        output_lst.append(word)
+#for word in dup_lst:
+#    if word not in output_lst and word.isalpha():
+#        output_lst.append(word)
+
+##sorting and de-duplicating list
+output_lst = sorted(set(dup_lst))
 
 ##new variable adding "uniquified" to the name of the origional file
 output_file = "uniquified_" + source_file
